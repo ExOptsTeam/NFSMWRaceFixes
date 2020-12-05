@@ -1,0 +1,21 @@
+[VERSN2]
+
+if file_exists absolute Languages\Largest.bin
+do
+new negate Languages\Largest.bin
+
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO RACETYPES_CASH_GRAB "Cashgrab"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO PRS_ACCUMULATED_CASH "Accumulated Cash"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO PRR_CASH_TITLE "Cash"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO PRS_CASH_VARIANCE "Cash Variance"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO RACETYPES_TOKEN_PICKUP "Token Pickup"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO PRR_TOKENS_TITLE "Tokens"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO HIGHEST_CASH_HEADER "Best Cash"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO PRR_CASHBAGS_RESULTS_BUTTON_TEXT "Cash Bags"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO TOKEN_PICKUP_OPTIONS "token pickup options"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO CASHGRAB_OPTIONS "cashgrab options"
+add_or_update_string Languages\Largest.bin STRBlocks GLOBAL AUTO CHALLENGE_OPTIONS "challenge options"
+
+delete Languages\Largest.bin
+else // do nothing
+end

@@ -1,0 +1,21 @@
+[VERSN2]
+
+if file_exists absolute Languages\Dutch.bin
+do
+new negate Languages\Dutch.bin
+
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO RACETYPES_CASH_GRAB "Cashgrijpen"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO PRS_ACCUMULATED_CASH "Totaalcash"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO PRR_CASH_TITLE "Cash"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO PRS_CASH_VARIANCE "Cash-afwijking"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO RACETYPES_TOKEN_PICKUP "Kaarten Ophalen"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO PRR_TOKENS_TITLE "Kaarten"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO HIGHEST_CASH_HEADER "Beste Cash"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO PRR_CASHBAGS_RESULTS_BUTTON_TEXT "Geldzakken"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO TOKEN_PICKUP_OPTIONS "instellingen kaarten ophalen"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO CASHGRAB_OPTIONS "instellingen cashgrijpen"
+add_or_update_string Languages\Dutch.bin STRBlocks GLOBAL AUTO CHALLENGE_OPTIONS "instellingen uitdaging"
+
+delete Languages\Dutch.bin
+else // do nothing
+end

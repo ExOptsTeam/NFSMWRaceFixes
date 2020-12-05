@@ -1,0 +1,21 @@
+[VERSN2]
+
+if file_exists absolute Languages\Italian.bin
+do
+new negate Languages\Italian.bin
+
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO RACETYPES_CASH_GRAB "Soldi afferrare"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO PRS_ACCUMULATED_CASH "Somma soldi"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO PRR_CASH_TITLE "Soldi"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO PRS_CASH_VARIANCE "Variazione soldi"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO RACETYPES_TOKEN_PICKUP "Gettone Prendere"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO PRR_TOKENS_TITLE "Gettoni"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO HIGHEST_CASH_HEADER "Migliore soldi"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO PRR_CASHBAGS_RESULTS_BUTTON_TEXT "Sacchi Di Soldi"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO TOKEN_PICKUP_OPTIONS "opzioni gettone prendere"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO CASHGRAB_OPTIONS "opzioni soldi afferrare"
+add_or_update_string Languages\Italian.bin STRBlocks GLOBAL AUTO CHALLENGE_OPTIONS "opzioni sfida"
+
+delete Languages\Italian.bin
+else // do nothing
+end

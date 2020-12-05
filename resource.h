@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ içerme dosyasý oluþturdu.
-// NFSU2TraxRenamer.rc tarafýndan kullanýlmýþ
+// NFSMWRaceFixes.rc tarafýndan kullanýlmýþ
 //
 
 // Next default values for new objects

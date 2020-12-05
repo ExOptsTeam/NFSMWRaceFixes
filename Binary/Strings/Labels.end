@@ -1,0 +1,21 @@
+[VERSN2]
+
+if file_exists absolute Languages\Labels.bin
+do
+new negate Languages\Labels.bin
+
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO RACETYPES_CASH_GRAB "RACETYPES_CASH_GRAB"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO PRS_ACCUMULATED_CASH "PRS_ACCUMULATED_CASH"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO PRR_CASH_TITLE "PRR_CASH_TITLE"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO PRS_CASH_VARIANCE "PRS_CASH_VARIANCE"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO RACETYPES_TOKEN_PICKUP "RACETYPES_TOKEN_PICKUP"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO PRR_TOKENS_TITLE "PRR_TOKENS_TITLE"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO HIGHEST_CASH_HEADER "HIGHEST_CASH_HEADER"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO PRR_CASHBAGS_RESULTS_BUTTON_TEXT "PRR_CASHBAGS_RESULTS_BUTTON_TEXT"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO TOKEN_PICKUP_OPTIONS "TOKEN_PICKUP_OPTIONS"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO CASHGRAB_OPTIONS "CASHGRAB_OPTIONS"
+add_or_update_string Languages\Labels.bin STRBlocks GLOBAL AUTO CHALLENGE_OPTIONS "CHALLENGE_OPTIONS"
+
+delete Languages\Labels.bin
+else // do nothing
+end

@@ -1,0 +1,21 @@
+[VERSN2]
+
+if file_exists absolute Languages\Polish.bin
+do
+new negate Languages\Polish.bin
+
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO RACETYPES_CASH_GRAB "Chwytanie Gotówki"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO PRS_ACCUMULATED_CASH "Zgromadzona Gotówka"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO PRR_CASH_TITLE "Gotówka"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO PRS_CASH_VARIANCE "Gotówka wariancja"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO RACETYPES_TOKEN_PICKUP "Token Podnieść"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO PRR_TOKENS_TITLE "Tokeny"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO HIGHEST_CASH_HEADER "Najlepsza Gotówka"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO PRR_CASHBAGS_RESULTS_BUTTON_TEXT "Torby na Gotówkę"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO TOKEN_PICKUP_OPTIONS "opcje token podnieść"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO CASHGRAB_OPTIONS "opcje chwytanie gotówki"
+add_or_update_string Languages\Polish.bin STRBlocks GLOBAL AUTO CHALLENGE_OPTIONS "opcje próba"
+
+delete Languages\Polish.bin
+else // do nothing
+end

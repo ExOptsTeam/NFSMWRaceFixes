@@ -1,0 +1,24 @@
+[VERSN2]
+
+version 2.4.0
+watermark ""
+unlock_memory all
+
+// Textures
+append Textures\GlobalB.end
+
+// Strings
+append Strings\Danish.end
+append Strings\Dutch.end
+append Strings\English.end
+append Strings\Finnish.end
+append Strings\French.end
+append Strings\German.end
+append Strings\Italian.end
+append Strings\Labels.end
+append Strings\Largest.end
+append Strings\Mexican.end
+append Strings\Polish.end
+append Strings\Russian.end
+append Strings\Spanish.end
+append Strings\Swedish.end
