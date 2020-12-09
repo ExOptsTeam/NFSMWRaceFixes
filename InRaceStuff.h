@@ -15,21 +15,21 @@ void __declspec(naked) AwardPointsCodeCave()
 
 		mov eax, dword ptr ds : [0x91E000]
 		test eax, eax
-		jz exit
+		jz cexit
 		mov eax, [eax + 0x1968]
 		test eax, eax
-		jz exit
+		jz cexit
 		mov ecx, eax
 		call GRaceParameters_GetRaceType
 		cmp eax, 7 // check if cashgrab
-		jnz exit
+		jnz cexit
 
 		// Show message
 		mov edx, [esi]
 		mov ecx, esi
 		call dword ptr[edx + 0x20] // physicsobject::getplayer / pvehicle::isimable
 		test eax, eax
-		jz exit
+		jz cexit
 		mov edx, [eax]
 		mov ecx, eax
 		call dword ptr[edx + 0x20]// localplayer::gethud // 0x1F6D1670 / fenghud eax
@@ -38,10 +38,11 @@ void __declspec(naked) AwardPointsCodeCave()
 		call UTL_COM_Object_IList_Find
 		mov esi, eax
 		test esi, esi
-		jz exit
+		jz cexit
 
 		mov edx, [esp + 0x08]
 		mov AwardScore, edx
+		jmp awardscorecont
 		/*
 		lea edx, AwardString
 		push AwardScore
@@ -49,6 +50,11 @@ void __declspec(naked) AwardPointsCodeCave()
 		push edx
 		call bSPrintf
 		*/
+
+		cexit:
+			retn
+
+		awardscorecont:
 	}
 
 	bSPrintf(AwardStringBuf, "+%0.0f", AwardScore);
@@ -65,10 +71,7 @@ void __declspec(naked) AwardPointsCodeCave()
 		lea eax, AwardStringBuf
 		push eax
 		mov ecx, esi
-		call dword ptr [edi + 4] // 568030
-
-		exit:
-		push 0x60E09D
+		call dword ptr [edi + 4] // 568030 - GenericMessage::RequestGenericMessage
 		retn
 	}
 }
