@@ -17,6 +17,7 @@
 #include "PostRaceRacerStats.h"
 #include "RaceOverMessage.h"
 #include "CopDensity.h"
+#include "UIQRChallengeSeries.h"
 #include "UIQRModeSelect.h"
 #include "UIQRTrackOptions.h"
 
@@ -105,6 +106,10 @@ int Init()
 	injector::WriteMemory(0x597107, SetupRacerStats_JumpTable1, true);
 	injector::WriteMemory<BYTE>(0x597168, 9, true);
 	injector::WriteMemory(0x597172, SetupRacerStats_JumpTable2, true);
+
+	// Un-hardcode Challenge Series icon
+	injector::MakeJMP(0x007AE8CA, AddRaceIconCodeCave, true);
+	injector::MakeJMP(0x007A42C4, RefreshHeaderIconCodeCave, true);
 
 	return 0;
 }
