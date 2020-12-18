@@ -8,6 +8,7 @@ Here is what we have done so far:
 * Forced lap count to 1 for point-to-point (Sprint, Drag, etc.) race modes.
 * Forced heat level to maximum for Challenge race mode.
 * Forced opponent count to 0 for Token Pickup and Challenge race modes.
++ Fixed hardcoded "Tollbooth" icon for the races in Challenge Series.
 + Restored Cashgrab race mode:
 - Added to the Quick Race menu.
 - Track select screen will now show best cash instead of the time.

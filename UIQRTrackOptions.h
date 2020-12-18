@@ -11,7 +11,7 @@ int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_
 
 	if (Game_IsLANGame() || Game_IsOnlineGame())
 	{
-		bool Somethingb = 0;
+		bool Somethingb = 1;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
 		*((BYTE*)FEDatabase + 400) = 3;
@@ -131,7 +131,7 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 3;
+		//*((BYTE*)FEDatabase + 400) = 3;
 	}
 	else
 	{
@@ -472,7 +472,7 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 1;
+		//*((BYTE*)FEDatabase + 400) = 1;
 	}
 	else
 	{
@@ -580,7 +580,7 @@ int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* ED
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 1;
+		//*((BYTE*)FEDatabase + 400) = 1;
 	}
 	else
 	{
@@ -686,7 +686,7 @@ int __fastcall UIQRTrackOptions_SetupTokenPickup(DWORD* UIQRTrackOptions, void* 
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 1;
+		//*((BYTE*)FEDatabase + 400) = 1;
 	}
 	else
 	{
@@ -736,7 +736,7 @@ int __fastcall UIQRTrackOptions_SetupCashgrab(DWORD* UIQRTrackOptions, void* EDX
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 1;
+		//*((BYTE*)FEDatabase + 400) = 1;
 	}
 	else
 	{
@@ -822,7 +822,7 @@ int __fastcall UIQRTrackOptions_SetupChallenge(DWORD* UIQRTrackOptions, void* ED
 		bool Somethingb = 0;
 		UIQRTrackOptions_BoilerPlateOnline(UIQRTrackOptions, &Somethingb);
 		result = (int)FEDatabase;
-		*((BYTE*)FEDatabase + 400) = 1;
+		//*((BYTE*)FEDatabase + 400) = 1;
 	}
 	else
 	{
@@ -933,31 +933,31 @@ int __fastcall UIQRTrackOptions_Setup(DWORD* UIQRTrackOptions, void* EDX_Unused)
 
 	RaceMode = FEDatabase[90];
 	UIQRTrackOptions_LoadOnlineDefaults(UIQRTrackOptions);
-	int DisconnectPercentage = 0;
+	int DisconnectPercentage[4] = { 0 };
 	FEDatabase[89] = 6;
-	if (Game_IsOnlineGame())
+	if (Game_IsLANGame())
 	{
-		*(BYTE*)(UIQRTrackOptions + 320) = 1;
+		*(BYTE*)(UIQRTrackOptions + 80) = 1;
 		goto LABEL_15;
 	}
-	if (*(BYTE*)(UIQRTrackOptions + 320))
+	if (*(BYTE*)(UIQRTrackOptions + 80))
 		goto LABEL_15;
 
-	if (!UIQRTrackOptions_GetDisconnectPercentage(UIQRTrackOptions, &DisconnectPercentage))
+	if (!UIQRTrackOptions_GetDisconnectPercentage(UIQRTrackOptions, DisconnectPercentage))
 	{
-		*(BYTE*)(UIQRTrackOptions + 320) = 1;
-		if (UIQRTrackOptions[316])
-			DialogInterface_DismissDialog(UIQRTrackOptions[316]);
+		*(BYTE*)(UIQRTrackOptions + 80) = 1;
+		if (UIQRTrackOptions[79])
+			DialogInterface_DismissDialog(UIQRTrackOptions[79]);
 		char* Something = (char*)FEDatabase + 308;
-		*((DWORD*)Something + 12) = GetDisconnectPercentageThreshold(&DisconnectPercentage);
+		*((DWORD*)Something + 12) = GetDisconnectPercentageThreshold(DisconnectPercentage);
 		goto LABEL_15;
 	}
 
-	int result = UIQRTrackOptions[316];
+	int result = UIQRTrackOptions[79];
 	if (!result)
 	{
 		result = DialogInterface_ShowOneButton((char*)(UIQRTrackOptions[4]), (char*)nullString, 2, bStringHash("COMMON_CANCEL"), 0x1FAB5998, 0x1FAB5998, GetLocalizedString(bStringHash("OL_MSG_DOWNLOADING_DICONNECT_PERC")));
-		UIQRTrackOptions[316] = result;
+		UIQRTrackOptions[79] = result;
 	}
 	return result;
 }
