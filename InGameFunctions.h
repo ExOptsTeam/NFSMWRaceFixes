@@ -2,18 +2,7 @@
 
 #include "stdio.h"
 #include <windows.h>
-
-#define MSOption_vtable 0x8B75B0
-#define cFEng_mInstance 0x91CADC
-#define _FEDatabase 0x91CF90
-#define nullString 0x890978
-
-#define TrackDirection_vtable 0x8B78C8
-#define NumLaps_vtable 0x8B788C
-#define TrafficLevel_vtable 0x8B7850
-#define CatchUp_vtable 0x8B7814
-#define AISkill_vtable 0x8B77D8
-#define NumOpponents_vtable 0x8B779C
+#include "GlobalVariables.h"
 
 void* (*j_malloc)(size_t) = (void* (*)(size_t))0x652AD0;
 unsigned int(__thiscall* IconScrollerMenu_AddOption)(void* TheThis, void* IconOption) = (unsigned int(__thiscall*)(void*, void*))0x573960;
@@ -70,3 +59,15 @@ int(__thiscall* GRaceCustom_SetNumOpponents)(DWORD* _this, BYTE NumOpponents) = 
 int(__thiscall* GRaceCustom_SetTrafficDensity)(DWORD* _this, BYTE TrafficDensity) = (int(__thiscall*)(DWORD*, BYTE))0x5E9A90;
 int(__thiscall* GRaceCustom_SetReversed)(DWORD* _this, bool Reversed) = (int(__thiscall*)(DWORD*, bool))0x5DCE50;
 int(__thiscall* FEToggleWidget_Disable)(void* FEToggleWidget) = (int(__thiscall*)(void*))0x589440;
+void(__thiscall* GRaceStatus_FinalizeRaceStats)(DWORD* GRaceStatus) = (void(__thiscall*)(DWORD*))0x6021B0;
+DWORD*(__thiscall* GRaceStatus_GetWinningPlayerInfo)(DWORD* GRaceStatus) = (DWORD*(__thiscall*)(DWORD*))0x5EB4E0;
+bool(__thiscall* GRaceParameters_GetNoPostRaceScreen)(DWORD* GRaceStatus) = (bool(__thiscall*)(DWORD*))0x5FC320;
+DWORD*(__thiscall* MFlowReadyForOutro_GetKind)(BYTE* MFlowReadyForOutro) = (DWORD*(__thiscall*)(BYTE*))0x5117C0;
+void(__thiscall* Hermes_Message_Post)(DWORD* HermesMessage, unsigned int MessageHash) = (void(__thiscall*)(DWORD*, unsigned int))0x654AF0;
+void(*Game_AbandonRace)() = (void(*)())0x60DEB0;
+unsigned int (__thiscall* GRaceParameters_GetEventHash)(DWORD* GRaceParameters) = (unsigned int(__thiscall*)(DWORD*))0x5FAB40;
+DWORD*(__thiscall* GRaceDatabase_GetScoreInfo)(DWORD* GRaceParameters, unsigned int EventHash) = (DWORD*(__thiscall*)(DWORD*, unsigned int))0x5DCA40;
+void(*FE_ShowPostRaceScreen)(bool RaceWon) = (void(*)(bool))0x60AC20;
+void(*FE_ShowOnlinePostRaceScreen)() = (void(*)())0x605690;
+DWORD* (*Event__nw)(int size) = (DWORD*(*)(int))0x627400;
+void(__thiscall* EShowResults_Create)(DWORD* EShowResults, int unk1, int unk2) = (void(__thiscall*)(DWORD*, int, int))0x642140;
