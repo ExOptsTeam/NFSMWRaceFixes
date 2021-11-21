@@ -21,12 +21,16 @@ If you want everything to work properly:
 
 1) You will need to add these textures in your GLOBAL\\GlobalB.bun/lzc, GlobalTextures.tpk:
 ```
+TEXTURE HASH - TEXTURE NAME
+---------------------------
 97C5B6A0 - MODE_ICON_MULTIPOINT_TOKEN
 CE985A7A - MODE_ICON_MULTIPOINT_CASHGRAB
 ```
 
 2) You will need to add these strings into your LANGUAGES\\(LanguageName).bin:
 ```
+STRING HASH - STRING LABEL - TEXT
+---------------------------------
 0D0C9448 - RACETYPES_CASH_GRAB - "Cashgrab"
 34FACD79 - PRS_ACCUMULATED_CASH - "Accumulated Cash"
 3E602952 - PRR_CASH_TITLE - "Cash"
@@ -40,7 +44,8 @@ D8E59B16 - TOKEN_PICKUP_OPTIONS - "token pickup options"
 12FA6FAD - CHALLENGE_OPTIONS - "challenge options"
 ```
 
-Note: Binary scripts which will do these automatically for you are available in the release pack.
+Note: Binary scripts which will do these automatically for you are available in the source code and the [release pack](https://www.github.com/ExOptsTeam/NFSMWRaceFixes/releases/latest).
+Just import "_NFSMWRaceFixes-Setup-Binary.end" file via [Binary by MaxHwoy](https://github.com/SpeedReflect/Binary) in User mode.
 
 # Download
-To download, please check out the releases page.
+To download, please check out the [releases page](https://www.github.com/ExOptsTeam/NFSMWRaceFixes/releases).
