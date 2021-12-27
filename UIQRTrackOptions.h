@@ -19,7 +19,7 @@ int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("Circuit", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Circuit", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -100,7 +100,7 @@ int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("Circuit", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Circuit", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -136,7 +136,7 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("LapKnockout", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("LapKnockout", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -169,7 +169,7 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 
 		// Freeze lap widget if ExOpts doesn't allow us to unfreeze it
 		CIniReader ExOptsSettings("NFSMWExtraOptionsSettings.ini");
-		if (TheToggleWidget && (ExOptsSettings.ReadInteger("LapControllers", "UnfreezeKO", 0) != 1))
+		if (TheToggleWidget && (ExOptsSettings.ReadInteger("LapControllers", "UnfreezeKO", 0) == 0))
 		{
 			TheToggleWidget[88] = FEHashUpper("GREY");
 			FEToggleWidget_Disable(TheToggleWidget);
@@ -225,7 +225,7 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("LapKnockout", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("LapKnockout", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -261,7 +261,7 @@ int __fastcall UIQRTrackOptions_SetupSprint(DWORD* UIQRTrackOptions, void* EDX_U
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("Sprint", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Sprint", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -330,7 +330,7 @@ int __fastcall UIQRTrackOptions_SetupSprint(DWORD* UIQRTrackOptions, void* EDX_U
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("Sprint", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Sprint", "CopDensity", 1) != 0)
 			{ 
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -367,7 +367,7 @@ int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unu
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("Drag", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Drag", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -386,7 +386,7 @@ int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unu
 		}
 		*/
 
-		if (RaceFixesSettings.ReadInteger("Drag", "TrafficLevel", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Drag", "TrafficLevel", 0) != 0)
 		{
 			TheToggleWidget = (DWORD*)j_malloc(92);
 			if (TheToggleWidget)
@@ -440,7 +440,7 @@ int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unu
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("Drag", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Drag", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -477,7 +477,7 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("Tollbooth", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Tollbooth", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -510,7 +510,7 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 		result = (int)FEDatabase;
 		if ((!(*((BYTE*)FEDatabase + 300) & 4) || *(BYTE*)FEDatabase != 2))
 		{
-			if (RaceFixesSettings.ReadInteger("Tollbooth", "NumOpponents", 0) == 1)
+			if (RaceFixesSettings.ReadInteger("Tollbooth", "NumOpponents", 0) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -549,7 +549,7 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 				result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
 
-			if (RaceFixesSettings.ReadInteger("Tollbooth", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Tollbooth", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -585,7 +585,7 @@ int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* ED
 	else
 	{
 		/*
-		if (RaceFixesSettings.ReadInteger("Speedtrap", "TrackDirection", 0) == 1)
+		if (RaceFixesSettings.ReadInteger("Speedtrap", "TrackDirection", 0) != 0)
 		{ // Track Direction (broken)
 			if (GRaceParameters_GetCanBeReversed((DWORD*)UIQRTrackOptions[74]))
 			{
@@ -654,7 +654,7 @@ int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* ED
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("Speedtrap", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Speedtrap", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -704,7 +704,7 @@ int __fastcall UIQRTrackOptions_SetupTokenPickup(DWORD* UIQRTrackOptions, void* 
 		result = (int)FEDatabase;
 		if (!(*((BYTE*)FEDatabase + 300) & 4) || *(BYTE*)FEDatabase != 2)
 		{
-			if (RaceFixesSettings.ReadInteger("TokenPickup", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("TokenPickup", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)
@@ -790,7 +790,7 @@ int __fastcall UIQRTrackOptions_SetupCashgrab(DWORD* UIQRTrackOptions, void* EDX
 			}
 			result = UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 
-			if (RaceFixesSettings.ReadInteger("Cashgrab", "CopDensity", 1) == 1)
+			if (RaceFixesSettings.ReadInteger("Cashgrab", "CopDensity", 1) != 0)
 			{
 				TheToggleWidget = (DWORD*)j_malloc(92);
 				if (TheToggleWidget)

@@ -7,46 +7,55 @@ int __fastcall UIQRModeSelect_Setup(DWORD* UIQRModeSelect, void* EDX_Unused)
 	DWORD* TheIconOption;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 
-	TheIconOption = (DWORD*)j_malloc(80);
-	if (TheIconOption)
+	if (RaceFixesSettings.ReadInteger("Circuit", "ShowInMenu", 1) != 0)
 	{
-		IconOption_Create(TheIconOption, bStringHash("MODE_ICON_CIRCUIT"), bStringHash("RACETYPES_CIRCUIT"), 0);
-		TheIconOption[0] = MSOption_vtable;
-		TheIconOption[19] = 1;
+		TheIconOption = (DWORD*)j_malloc(80);
+		if (TheIconOption)
+		{
+			IconOption_Create(TheIconOption, bStringHash("MODE_ICON_CIRCUIT"), bStringHash("RACETYPES_CIRCUIT"), 0);
+			TheIconOption[0] = MSOption_vtable;
+			TheIconOption[19] = 1;
+		}
+		else
+		{
+			TheIconOption = 0;
+		}
+		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
-	else
-	{
-		TheIconOption = 0;
-	}
-	IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 
-	TheIconOption = (DWORD*)j_malloc(80);
-	if (TheIconOption)
+	if (RaceFixesSettings.ReadInteger("Sprint", "ShowInMenu", 1) != 0)
 	{
-		IconOption_Create(TheIconOption, bStringHash("MODE_ICON_SPRINT"), bStringHash("RACETYPES_SPRINT"), 0);
-		TheIconOption[0] = MSOption_vtable;
-		TheIconOption[19] = 0;
+		TheIconOption = (DWORD*)j_malloc(80);
+		if (TheIconOption)
+		{
+			IconOption_Create(TheIconOption, bStringHash("MODE_ICON_SPRINT"), bStringHash("RACETYPES_SPRINT"), 0);
+			TheIconOption[0] = MSOption_vtable;
+			TheIconOption[19] = 0;
+		}
+		else
+		{
+			TheIconOption = 0;
+		}
+		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
-	else
-	{
-		TheIconOption = 0;
-	}
-	IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 
-	TheIconOption = (DWORD*)j_malloc(80);
-	if (TheIconOption)
+	if (RaceFixesSettings.ReadInteger("Drag", "ShowInMenu", 1) != 0)
 	{
-		IconOption_Create(TheIconOption, bStringHash("MODE_ICON_DRAG"), bStringHash("RACETYPES_DRAG"), 0);
-		TheIconOption[0] = MSOption_vtable;
-		TheIconOption[19] = 2;
+		TheIconOption = (DWORD*)j_malloc(80);
+		if (TheIconOption)
+		{
+			IconOption_Create(TheIconOption, bStringHash("MODE_ICON_DRAG"), bStringHash("RACETYPES_DRAG"), 0);
+			TheIconOption[0] = MSOption_vtable;
+			TheIconOption[19] = 2;
+		}
+		else
+		{
+			TheIconOption = 0;
+		}
+		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
-	else
-	{
-		TheIconOption = 0;
-	}
-	IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 
-	if (RaceFixesSettings.ReadInteger("QuickRaceModeSelectMenu", "Tollbooth", 1) == 1)
+	if (RaceFixesSettings.ReadInteger("Tollbooth", "ShowInMenu", 1) != 0)
 	{
 		TheIconOption = (DWORD*)j_malloc(80);
 		if (TheIconOption)
@@ -62,7 +71,7 @@ int __fastcall UIQRModeSelect_Setup(DWORD* UIQRModeSelect, void* EDX_Unused)
 		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
 
-	if (RaceFixesSettings.ReadInteger("QuickRaceModeSelectMenu", "Challenge", 0) == 1)
+	if (RaceFixesSettings.ReadInteger("Challenge", "ShowInMenu", 0) != 0)
 	{
 		TheIconOption = (DWORD*)j_malloc(80);
 		if (TheIconOption)
@@ -78,33 +87,39 @@ int __fastcall UIQRModeSelect_Setup(DWORD* UIQRModeSelect, void* EDX_Unused)
 		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
 
-	TheIconOption = (DWORD*)j_malloc(80);
-	if (TheIconOption)
+	if (RaceFixesSettings.ReadInteger("LapKnockout", "ShowInMenu", 1) != 0)
 	{
-		IconOption_Create(TheIconOption, bStringHash("MODE_ICON_LAP_KNOCKOUT"), bStringHash("RACETYPES_KNOCKOUT"), 0);
-		TheIconOption[0] = MSOption_vtable;
-		TheIconOption[19] = 3;
+		TheIconOption = (DWORD*)j_malloc(80);
+		if (TheIconOption)
+		{
+			IconOption_Create(TheIconOption, bStringHash("MODE_ICON_LAP_KNOCKOUT"), bStringHash("RACETYPES_KNOCKOUT"), 0);
+			TheIconOption[0] = MSOption_vtable;
+			TheIconOption[19] = 3;
+		}
+		else
+		{
+			TheIconOption = 0;
+		}
+		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
-	else
-	{
-		TheIconOption = 0;
-	}
-	IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 
-	TheIconOption = (DWORD*)j_malloc(80);
-	if (TheIconOption)
+	if (RaceFixesSettings.ReadInteger("Speedtrap", "ShowInMenu", 1) != 0)
 	{
-		IconOption_Create(TheIconOption, bStringHash("MILESTONE_SPEEDTRAP"), bStringHash("RACETYPES_SPEEDTRAP"), 0);
-		TheIconOption[0] = MSOption_vtable;
-		TheIconOption[19] = 5;
+		TheIconOption = (DWORD*)j_malloc(80);
+		if (TheIconOption)
+		{
+			IconOption_Create(TheIconOption, bStringHash("MILESTONE_SPEEDTRAP"), bStringHash("RACETYPES_SPEEDTRAP"), 0);
+			TheIconOption[0] = MSOption_vtable;
+			TheIconOption[19] = 5;
+		}
+		else
+		{
+			TheIconOption = 0;
+		}
+		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
-	else
-	{
-		TheIconOption = 0;
-	}
-	IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 
-	if (RaceFixesSettings.ReadInteger("QuickRaceModeSelectMenu", "Cashgrab", 0) == 1)
+	if (RaceFixesSettings.ReadInteger("Cashgrab", "ShowInMenu", 0) != 0)
 	{
 		TheIconOption = (DWORD*)j_malloc(80);
 		if (TheIconOption)
@@ -120,7 +135,7 @@ int __fastcall UIQRModeSelect_Setup(DWORD* UIQRModeSelect, void* EDX_Unused)
 		IconScrollerMenu_AddOption(UIQRModeSelect, TheIconOption);
 	}
 
-	if (RaceFixesSettings.ReadInteger("QuickRaceModeSelectMenu", "TokenPickup", 0) == 1)
+	if (RaceFixesSettings.ReadInteger("TokenPickup", "ShowInMenu", 0) != 0)
 	{
 		TheIconOption = (DWORD*)j_malloc(80);
 		if (TheIconOption)
