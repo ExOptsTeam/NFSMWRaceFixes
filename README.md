@@ -5,16 +5,17 @@ Here is what we have done so far:
 + Fixed race names and icons for LAN races. (Transferred from Extra Options.)
 + Added Tollbooth, Challenge, Token Pickup and Cashgrab race modes to Quick Race Menu. (Only Tollbooth is enabled by default.)
 + Added a game option to enable cops in the race. (Transferred from Extra Options.)
++ Added a game option to set any pursuit condition (if the Heat level is set to at least Minimum) in the race.
 * Forced lap count to 1 for point-to-point (Sprint, Drag, etc.) race modes.
 * Forced heat level to maximum for Challenge race mode.
 * Forced opponent count to 0 for Token Pickup and Challenge race modes.
 + Fixed hardcoded "Tollbooth" icon for the races in Challenge Series.
 + Restored Cashgrab race mode:
-- Added to the Quick Race menu.
-- Track select screen will now show best cash instead of the time.
-- Added on-screen messages when the player gets a cash bag.
-- Leaderboard is fixed.
-- Post Race stats are almost fixed. (Cash Bags / Stages page is empty.)
+	- Added to the Quick Race menu.
+	- Track select screen will now show best cash instead of the time.
+	- Added on-screen messages when the player gets a cash bag.
+	- Leaderboard is fixed.
+	- Post Race stats are almost fixed. (Cash Bags / Stages page is empty.)
 
 # Technical Information
 If you want everything to work properly:
@@ -42,6 +43,7 @@ F27395FE - PRR_CASHBAGS_RESULTS_BUTTON_TEXT - "Cash Bags"
 D8E59B16 - TOKEN_PICKUP_OPTIONS - "token pickup options"
 25110F85 - CASHGRAB_OPTIONS - "cashgrab options"
 12FA6FAD - CHALLENGE_OPTIONS - "challenge options"
+1D7DF65A - QR_OPT_CONDITION - "Condition"
 ```
 
 Note: Binary scripts which will do these automatically for you are available in the source code and the [release pack](https://www.github.com/ExOptsTeam/NFSMWRaceFixes/releases/latest).

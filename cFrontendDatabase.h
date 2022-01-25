@@ -31,7 +31,10 @@ DWORD __fastcall cFrontendDatabase_FillCustomRace(DWORD* cFrontendDatabase, void
 		{
 			GRaceCustom_SetCopsEnabled(GRaceCustom, *(RaceSettings + 12));
 			if (*(RaceSettings + 12)) // if Cops are enabled
+			{
 				GRaceCustom_SetCopDensity(GRaceCustom, EDX_Unused, *(RaceSettings + 9));
+				GRaceCustom_SetForceHeatLevel(GRaceCustom, EDX_Unused, _CustomRaceOptions[RaceType].ForceHeatLevel);
+			}
 		}
 
 		if (RaceType == 6 || RaceType == 8) // Token Pickup & Challenge
@@ -46,24 +49,23 @@ DWORD __fastcall cFrontendDatabase_FillCustomRace(DWORD* cFrontendDatabase, void
 		GRaceCustom_SetCatchUp(GRaceCustom, *(RaceSettings + 11));
 		GRaceCustom_SetDifficulty(GRaceCustom, *(RaceSettings + 8));
 		
-		if (*(RaceSettings + 10) == 1)
+		CIniReader ExOpts("NFSMWExtraOptionsSettings.ini");
+		switch (RaceSettings[10])
 		{
-			TrafficDensity = 10;
+		case 1:
+			GRaceCustom_SetTrafficDensity(GRaceCustom, ExOpts.ReadInteger("TrafficControllers", "Low", 10));
+			break;
+		case 2:
+			GRaceCustom_SetTrafficDensity(GRaceCustom, ExOpts.ReadInteger("TrafficControllers", "Medium", 30));
+			break;
+		case 3:
+			GRaceCustom_SetTrafficDensity(GRaceCustom, ExOpts.ReadInteger("TrafficControllers", "High", 50));
+			break;
+		default:
+			GRaceCustom_SetTrafficDensity(GRaceCustom, 0);
+			break;
 		}
-		else
-		{
-			if (*(RaceSettings + 10) != 2)
-			{
-				if (*(RaceSettings + 10) == 3)
-					GRaceCustom_SetTrafficDensity(GRaceCustom, 50);
-				else
-					GRaceCustom_SetTrafficDensity(GRaceCustom, 0);
-				goto LABEL_13;
-			}
-			TrafficDensity = 30;
-		}
-		GRaceCustom_SetTrafficDensity(GRaceCustom, TrafficDensity);
-	LABEL_13:
+
 		result = GRaceCustom_SetReversed(GRaceCustom, *(RaceSettings + 5) == 1);
 	}
 	return result;
@@ -83,15 +85,15 @@ BYTE __fastcall cFrontendDatabase_DefaultRaceSettings(BYTE* cFrontendDatabase, v
 	do
 	{
 		RaceTypeCarRef = (int*)(RaceTypeDataRef + 8);
+		*(BYTE*)(RaceTypeDataRef - 4) = 1;        // Laps
+		*(BYTE*)(RaceTypeDataRef - 3) = 0;        // Track Direction (broken)
+		*(BYTE*)(RaceTypeDataRef - 2) = 0;        // Unused??
 		*(BYTE*)(RaceTypeDataRef - 1) = 3;        // Opponents
 		*(BYTE*)RaceTypeDataRef = 1;              // Difficulty
-		*(BYTE*)(RaceTypeDataRef + 1) = 1;        // Heat Level
+		*(BYTE*)(RaceTypeDataRef + 1) = 0;        // Heat Level
 		*(BYTE*)(RaceTypeDataRef + 2) = 1;        // Traffic Level
 		*(BYTE*)(RaceTypeDataRef + 3) = 1;        // Catch Up
 		*(BYTE*)(RaceTypeDataRef + 4) = 0;        // Cops in Race
-		*(BYTE*)(RaceTypeDataRef - 3) = 0;        // Track Direction (broken)
-		*(BYTE*)(RaceTypeDataRef - 4) = 1;        // Laps
-		*(BYTE*)(RaceTypeDataRef - 2) = 0;        // Unused
 		*RaceTypeCarRef = 0;
 		RaceTypeCarRef[1] = 0;
 		*RaceTypeCarRef = DefaultCar;

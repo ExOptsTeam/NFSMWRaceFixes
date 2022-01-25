@@ -42,3 +42,9 @@
 #define CatchUp_vtable 0x8B7814
 #define AISkill_vtable 0x8B77D8
 #define NumOpponents_vtable 0x8B779C
+
+int MinHeat = 1;
+int MaxHeat = 5;
+
+DWORD* UIQRTrackOptions_sInstance;
+CustomRaceOptions _CustomRaceOptions[12];

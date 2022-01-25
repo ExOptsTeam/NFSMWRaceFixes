@@ -26,3 +26,12 @@ int __fastcall GRaceCustom_SetCopDensity(DWORD* _this, void* EDX_Unused, int Cop
 
 	return result;
 }
+
+int __fastcall GRaceCustom_SetForceHeatLevel(DWORD* _this, void* EDX_Unused, int ForceHeatLevel)
+{
+	_this[8] = ForceHeatLevel; // In-Game thing which sets starting heat level for qr events
+
+	int result = GRaceCustom_SetAttribute(_this, 0xE4211F4F, &ForceHeatLevel, 0);
+
+	return result;
+}

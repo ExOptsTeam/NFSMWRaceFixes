@@ -5,6 +5,8 @@
 #include "includes\IniReader.h"
 #include "includes\injector\injector.hpp"
 
+#include "CustomRaceOptions.h"
+
 #include "InGameFunctions.h"
 #include "GRaceCustom.h"
 #include "cFrontendDatabase.h"
@@ -17,6 +19,7 @@
 #include "PostRaceRacerStats.h"
 #include "RaceOverMessage.h"
 #include "CopDensity.h"
+#include "StartingPursuitCondition.h"
 #include "UIQRChallengeSeries.h"
 #include "UIQRModeSelect.h"
 #include "UIQRTrackOptions.h"
@@ -37,7 +40,10 @@ int Init()
 	bool ChallengeSeriesFixes = RaceFixesSettings.ReadInteger("Main", "ChallengeSeriesFixes", 1) != 0;
 	bool LANFixes = RaceFixesSettings.ReadInteger("Main", "LANFixes", 1) != 0;
 
-	bool OutroFix = RaceFixesSettings.ReadInteger("Fields", "OutroMovieFix", 1) != 0;
+	bool OutroFix = RaceFixesSettings.ReadInteger("Fields", "OutroMovieFix", 0) != 0;
+
+	MinHeat = RaceFixesSettings.ReadInteger("StartingPursuitCondition", "Minimum", 1);
+	MaxHeat = RaceFixesSettings.ReadInteger("StartingPursuitCondition", "Maximum", 5);
 
 	bool ShowCashbagMessage = RaceFixesSettings.ReadInteger("Cashgrab", "ShowCashbagMessage", 1) != 0;
 
@@ -121,10 +127,10 @@ int Init()
 		injector::MakeNOP(0x58C7B4, 2, true); // HudResourceManager::GetCarPart
 	}
 
-	// Outro Movie Fix
+	// Outro Movie Fix (BROKEN)
 	if (OutroFix)
 	{
-		injector::WriteMemory(0x61EA2C, Game_EnterPostRaceFlow, true); // LuaBindery::BindToGameCode
+		//injector::WriteMemory(0x61EA2C, Game_EnterPostRaceFlow, true); // LuaBindery::BindToGameCode
 	}
 
 	return 0;

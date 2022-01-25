@@ -4,7 +4,7 @@
 
 int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -114,6 +114,21 @@ int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Circuit", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 	}
 	return result;
@@ -121,7 +136,7 @@ int __fastcall UIQRTrackOptions_SetupCircuit(DWORD* UIQRTrackOptions, void* EDX_
 
 int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -239,6 +254,21 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("LapKnockout", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 	}
 	return result;
@@ -246,7 +276,7 @@ int __fastcall UIQRTrackOptions_SetupLapKnockout(DWORD* UIQRTrackOptions, void* 
 
 int __fastcall UIQRTrackOptions_SetupSprint(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -344,6 +374,21 @@ int __fastcall UIQRTrackOptions_SetupSprint(DWORD* UIQRTrackOptions, void* EDX_U
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Sprint", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 
 	}
@@ -352,7 +397,7 @@ int __fastcall UIQRTrackOptions_SetupSprint(DWORD* UIQRTrackOptions, void* EDX_U
 
 int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -454,6 +499,21 @@ int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unu
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Drag", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 
 	}
@@ -462,7 +522,7 @@ int __fastcall UIQRTrackOptions_SetupDrag(DWORD* UIQRTrackOptions, void* EDX_Unu
 
 int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -563,6 +623,21 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Tollbooth", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 	}
 	return result;
@@ -570,7 +645,7 @@ int __fastcall UIQRTrackOptions_SetupTollbooth(DWORD* UIQRTrackOptions, void* ED
 
 int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -668,6 +743,21 @@ int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* ED
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Speedtrap", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 
 	}
@@ -676,7 +766,7 @@ int __fastcall UIQRTrackOptions_SetupSpeedtrap(DWORD* UIQRTrackOptions, void* ED
 
 int __fastcall UIQRTrackOptions_SetupTokenPickup(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -718,6 +808,21 @@ int __fastcall UIQRTrackOptions_SetupTokenPickup(DWORD* UIQRTrackOptions, void* 
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("TokenPickup", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 
 	}
@@ -726,7 +831,7 @@ int __fastcall UIQRTrackOptions_SetupTokenPickup(DWORD* UIQRTrackOptions, void* 
 
 int __fastcall UIQRTrackOptions_SetupCashgrab(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -804,6 +909,21 @@ int __fastcall UIQRTrackOptions_SetupCashgrab(DWORD* UIQRTrackOptions, void* EDX
 				}
 				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
 			}
+
+			if (RaceFixesSettings.ReadInteger("Cashgrab", "StartingPursuitCondition", 0) != 0)
+			{
+				TheToggleWidget = (DWORD*)j_malloc(92);
+				if (TheToggleWidget)
+				{
+					FEToggleWidget_Create(TheToggleWidget, 1);
+					TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+				}
+				else
+				{
+					TheToggleWidget = 0;
+				}
+				UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+			}
 		}
 
 	}
@@ -812,7 +932,7 @@ int __fastcall UIQRTrackOptions_SetupCashgrab(DWORD* UIQRTrackOptions, void* EDX
 
 int __fastcall UIQRTrackOptions_SetupChallenge(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 	DWORD* TheToggleWidget;
 	CIniReader RaceFixesSettings("NFSMWRaceFixesSettings.ini");
 	int result;
@@ -837,6 +957,22 @@ int __fastcall UIQRTrackOptions_SetupChallenge(DWORD* UIQRTrackOptions, void* ED
 			TheToggleWidget = 0;
 		}
 		UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+
+		if (RaceFixesSettings.ReadInteger("Challenge", "StartingPursuitCondition", 0) != 0)
+		{
+			TheToggleWidget = (DWORD*)j_malloc(92);
+			if (TheToggleWidget)
+			{
+				FEToggleWidget_Create(TheToggleWidget, 1);
+				TheToggleWidget[0] = (DWORD)StartingPursuitCondition_vtable;
+			}
+			else
+			{
+				TheToggleWidget = 0;
+			}
+			UIWidgetMenu_AddToggleOption(UIQRTrackOptions, TheToggleWidget, 1);
+		}
+
 		result = (int)FEDatabase;
 	}
 	return result;
@@ -845,7 +981,7 @@ int __fastcall UIQRTrackOptions_SetupChallenge(DWORD* UIQRTrackOptions, void* ED
 int __fastcall UIQRTrackOptions_Setup(DWORD* UIQRTrackOptions, void* EDX_Unused)
 {
 	int RaceMode;
-	DWORD* FEDatabase = (DWORD*)*(DWORD*)_FEDatabase;
+	DWORD* FEDatabase = *(DWORD**)_FEDatabase;
 
 	if (Game_IsLANGame() || Game_IsOnlineGame())
 	{
@@ -959,5 +1095,6 @@ int __fastcall UIQRTrackOptions_Setup(DWORD* UIQRTrackOptions, void* EDX_Unused)
 		result = DialogInterface_ShowOneButton((char*)(UIQRTrackOptions[4]), (char*)nullString, 2, bStringHash("COMMON_CANCEL"), 0x1FAB5998, 0x1FAB5998, GetLocalizedString(bStringHash("OL_MSG_DOWNLOADING_DICONNECT_PERC")));
 		UIQRTrackOptions[79] = result;
 	}
+
 	return result;
 }
