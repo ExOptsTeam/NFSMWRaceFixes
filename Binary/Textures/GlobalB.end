@@ -1,7 +1,0 @@
-[VERSN2]
-if collection_exists GLOBAL\GLOBALB.LZC TPKBlocks DEFAULT
-do
-append Textures\GlobalTextures-TexEd.end
-else
-append Textures\GlobalTextures.end
-end

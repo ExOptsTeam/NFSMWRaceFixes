@@ -86,6 +86,7 @@ int Init()
 	}
 
 	injector::MakeJMP(0x56E090, cFrontendDatabase_GetRaceIconHash, true); // Icon Fixes
+	injector::MakeJMP(0x56DEA0, cFrontendDatabase_GetMilestoneIconHash, true); // Milestone Icon Fixes
 	injector::MakeJMP(0x56E010, cFrontendDatabase_GetRaceNameHash, true); // Name Fixes
 
 	// Bring Back Cashgrab
