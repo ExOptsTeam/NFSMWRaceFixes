@@ -21,23 +21,25 @@ Here is what we have done so far:
 # Technical Information
 To make everything work properly, we had to make some changes in the game files.
 
-1) Added new strings:
+1) Added new strings:  
+
 | String hash   | String label                      | Text (in English)                      | Destination                          |
 | ------------- | --------------------------------- | -------------------------------------- | ------------------------------------ |
-| 0x0D0C9448    | RACETYPES_CASH_GRAB               | "Cashgrab"                             | Languages\`*********`.bin            |
-| 0x12FA6FAD    | CHALLENGE_OPTIONS                 | "challenge options"                    | Languages\`*********`.bin            |
-| 0x1D7DF65A    | QR_OPT_CONDITION                  | "Condition"                            | Languages\`*********`.bin            |
-| 0x25110F85    | CASHGRAB_OPTIONS                  | "cashgrab options"                     | Languages\`*********`.bin            |
-| 0x34FACD79    | PRS_ACCUMULATED_CASH              | "Accumulated Cash"                     | Languages\`*********`.bin            |
-| 0x3E602952    | PRR_CASH_TITLE                    | "Cash"                                 | Languages\`*********`.bin            |
-| 0x482039FA    | PRS_CASH_VARIANCE                 | "Cash Variance"                        | Languages\`*********`.bin            |
-| 0x634BA8DA    | RACETYPES_TOKEN_PICKUP            | "Token Pickup"                         | Languages\`*********`.bin            |
-| 0x9A77C9A7    | PRR_TOKENS_TITLE                  | "Tokens"                               | Languages\`*********`.bin            |
-| 0xCF2BDD31    | HIGHEST_CASH_HEADER               | "Best Cash"                            | Languages\`*********`.bin            |
-| 0xD8E59B16    | TOKEN_PICKUP_OPTIONS              | "token pickup options"                 | Languages\`*********`.bin            |
-| 0xF27395FE    | PRR_CASHBAGS_RESULTS_BUTTON_TEXT  | "Cash Bags"                            | Languages\`*********`.bin            |
+| 0x0D0C9448    | RACETYPES_CASH_GRAB               | "Cashgrab"                             | Languages\\*.bin                     |
+| 0x12FA6FAD    | CHALLENGE_OPTIONS                 | "challenge options"                    | Languages\\*.bin                     |
+| 0x1D7DF65A    | QR_OPT_CONDITION                  | "Condition"                            | Languages\\*.bin                     |
+| 0x25110F85    | CASHGRAB_OPTIONS                  | "cashgrab options"                     | Languages\\*.bin                     |
+| 0x34FACD79    | PRS_ACCUMULATED_CASH              | "Accumulated Cash"                     | Languages\\*.bin                     |
+| 0x3E602952    | PRR_CASH_TITLE                    | "Cash"                                 | Languages\\*.bin                     |
+| 0x482039FA    | PRS_CASH_VARIANCE                 | "Cash Variance"                        | Languages\\*.bin                     |
+| 0x634BA8DA    | RACETYPES_TOKEN_PICKUP            | "Token Pickup"                         | Languages\\*.bin                     |
+| 0x9A77C9A7    | PRR_TOKENS_TITLE                  | "Tokens"                               | Languages\\*.bin                     |
+| 0xCF2BDD31    | HIGHEST_CASH_HEADER               | "Best Cash"                            | Languages\\*.bin                     |
+| 0xD8E59B16    | TOKEN_PICKUP_OPTIONS              | "token pickup options"                 | Languages\\*.bin                     |
+| 0xF27395FE    | PRR_CASHBAGS_RESULTS_BUTTON_TEXT  | "Cash Bags"                            | Languages\\*.bin                     |
 
-2) Added new textures:
+2) Added new textures:  
+
 | Texture hash  | Texture name                  | Destination                            |
 | ------------- | ----------------------------- | -------------------------------------- |
 | 0x03B2DD3C    | MILESTONE_RECKLESS_DRIVING    | Global\GlobalB.lzc, GlobalTextures.tpk |
@@ -55,7 +57,8 @@ To make everything work properly, we had to make some changes in the game files.
 | 0xD438F62F    | MILESTONE_OFFROAD             | Global\GlobalB.lzc, GlobalTextures.tpk |
 | 0xD8053BD0    | MILESTONE_HEAT                | Global\GlobalB.lzc, GlobalTextures.tpk |
 
-3) Moved some textures from other game files:
+3) Moved some textures from other game files:  
+
 | Texture hash  | Texture name                  | Source                                                                                | Destination                            |
 | ------------- | ----------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------- |
 | 0x3787231C    | COPS_ICON                     | Global\HUDTexRace.bin, HUDTexturesSingleRace.tpk                                      | Global\GlobalB.lzc, GlobalTextures.tpk |
