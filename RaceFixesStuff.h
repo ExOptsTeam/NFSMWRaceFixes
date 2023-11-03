@@ -22,6 +22,7 @@
 #include "StartingPursuitCondition.h"
 #include "UIQRChallengeSeries.h"
 #include "UIQRModeSelect.h"
+#include "UIQRTrackSelect.h"
 #include "UIQRTrackOptions.h"
 #include "Game.h"
 
@@ -36,6 +37,7 @@ int Init()
 
 	// Read settings
 	bool QuickRaceModeSelectHook = RaceFixesSettings.ReadInteger("Main", "QuickRaceModeSelectHook", 1) != 0;
+	bool QuickRaceTrackSelectHook = RaceFixesSettings.ReadInteger("Main", "QuickRaceTrackSelectHook", 1) != 0;
 	bool QuickRaceTrackOptionsHook = RaceFixesSettings.ReadInteger("Main", "QuickRaceTrackOptionsHook", 1) != 0;
 	bool ChallengeSeriesFixes = RaceFixesSettings.ReadInteger("Main", "ChallengeSeriesFixes", 1) != 0;
 	bool LANFixes = RaceFixesSettings.ReadInteger("Main", "LANFixes", 1) != 0;
@@ -52,6 +54,13 @@ int Init()
 	{
 		injector::MakeCALL(0x7BA4D7, UIQRModeSelect_Setup, true);
 		injector::WriteMemory(0x8B7E28, &UIQRModeSelect_Setup, true);
+	}
+
+	// Hook Quick Race Track Select Menu to allow customization of it
+	if (QuickRaceTrackSelectHook)
+	{
+		injector::MakeCALL(0x7C1473, UIQRTrackSelect_Setup, true);
+		injector::WriteMemory(0x8B7E38, &UIQRTrackSelect_Setup, true);
 	}
 
 	// Hook Track Options to allow customization of it

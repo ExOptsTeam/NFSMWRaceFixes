@@ -116,6 +116,7 @@ copy "$(TargetDir)*.pdb" "G:\Oyunlar\Need for Speed Most Wanted Dirty\scripts"  
     <ClInclude Include="UIQRChallengeSeries.h" />
     <ClInclude Include="UIQRModeSelect.h" />
     <ClInclude Include="UIQRTrackOptions.h" />
+    <ClInclude Include="UIQRTrackSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
