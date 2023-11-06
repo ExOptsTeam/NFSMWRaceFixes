@@ -23,7 +23,8 @@ Here is what we have done so far:
 # Technical Information
 To make everything work properly, we had to make some changes in the game files.  
 
-1) Added new strings:  
+1) Added new strings:
+
 | String hash   | String label                      | Text (in English)                      | Destination                          |
 | ------------- | --------------------------------- | -------------------------------------- | ------------------------------------ |
 | 0x0D0C9448    | RACETYPES_CASH_GRAB               | "Cashgrab"                             | Languages\<LANGUAGENAME>.bin         |
@@ -42,7 +43,8 @@ To make everything work properly, we had to make some changes in the game files.
 | 0x4F5DFD0C    | TRACK_SELECT_CASH_GRAB            | "cashgrab track select"                | Languages\<LANGUAGENAME>.bin         |
 | 0x638E3195    | TRACK_SELECT_CHALLENGE            | "challenge track select"               | Languages\<LANGUAGENAME>.bin         |
 
-2) Added new textures:  
+2) Added new textures:
+
 | Texture hash  | Texture name                  | Destination                            |
 | ------------- | ----------------------------- | -------------------------------------- |
 | 0x03B2DD3C    | MILESTONE_RECKLESS_DRIVING    | Global\GlobalB.lzc, GlobalTextures.tpk |
@@ -60,7 +62,8 @@ To make everything work properly, we had to make some changes in the game files.
 | 0xD438F62F    | MILESTONE_OFFROAD             | Global\GlobalB.lzc, GlobalTextures.tpk |
 | 0xD8053BD0    | MILESTONE_HEAT                | Global\GlobalB.lzc, GlobalTextures.tpk |
 
-3) Moved some textures from other game files:  
+3) Moved some textures from other game files:
+   
 | Texture hash  | Texture name                  | Source                                                                                | Destination                            |
 | ------------- | ----------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------- |
 | 0x3787231C    | COPS_ICON                     | Global\HUDTexRace.bin, HUDTexturesSingleRace.tpk                                      | Global\GlobalB.lzc, GlobalTextures.tpk |
